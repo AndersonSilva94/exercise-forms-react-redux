@@ -6,6 +6,7 @@ import UltimoTrabalho from './components/UltimoTrabalho';
 import DadosGerais from './components/DadosGerais';
 import { addInfo, clearInfo } from './actions';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 const INITIAL_STATE = {
   nome: '',
@@ -50,13 +51,13 @@ class App extends React.Component {
 
   resetForm = () => {
     this.setState(INITIAL_STATE);
-    this.props.clear();
+    this.props.clearInfo();
   };
 
   renderSubmit = (event) => {
     event.preventDefault();
     this.setState({submitted: true});
-    this.props.add(this.state);
+    this.props.addInfo(this.state);
   }
 
   render() {
@@ -92,9 +93,12 @@ const mapStateToProps = (state) => ({
   infos: state,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+/* const mapDispatchToProps = (dispatch) => ({
   add: (form_data) => dispatch(addInfo(form_data)),
   clear: () => dispatch(clearInfo())
-});
+}); */
+
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators({ addInfo, clearInfo }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
