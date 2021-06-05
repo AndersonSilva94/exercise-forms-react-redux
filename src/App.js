@@ -66,9 +66,9 @@ class App extends React.Component {
     const { nome, email, cpf, adress, city, state, cv, job, description, submitted } = this.state;
 
     return (
-      <div>
-        <h1>Cadastro de Currículo</h1>
-        <form>
+      <div className="container">
+        <h1 className="mt-4 text-center">Cadastro de Currículo</h1>
+        <form className="my-3">
           <DadosPessoais
             onChange={this.handleChanges}
             onClick={this.handleClick}
@@ -79,8 +79,8 @@ class App extends React.Component {
             onChange={this.handleChanges}
             value={{ cv, job, description }} />
         </form>
-        <button className="submit" onClick={this.renderSubmit}>Enviar</button>
-        <button className="clear" onClick={this.resetForm}>Limpar</button>
+        <button className="btn btn-success col-md-2" onClick={this.renderSubmit}>Enviar</button>
+        <button className="btn btn-danger ml-md-2 col-md-2" onClick={this.resetForm}>Limpar</button>
         <div className="renderInfo">
           { submitted && <DadosGerais 
           currentStates={infos}/> }

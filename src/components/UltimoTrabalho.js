@@ -6,20 +6,25 @@ class UltimoTrabalho extends Component {
     const { value: { cv, job, description }, onChange } = this.props;
 
     return (
-      <fieldset>
-        <label> Resumo do currículo
-          <textarea maxLength="1000" required name="cv" value={cv} onChange={onChange}/>
-        </label>
+      <>
+        <div className="form-row">
+          <div className="form-group col-md-4">
+            <label>Cargo</label>
+            <textarea className="form-control" maxLength="40" required name="job" value={job} onChange={onChange} rows="3"/>
+          </div>
+          <div className="form-group col-md-8">
+            <label> Resumo do currículo</label>
+            <textarea className="form-control" maxLength="1000" required name="cv" value={cv} onChange={onChange} rows="3"/>
+          </div>
+        </div>
 
-        <label> Cargo
-          <textarea maxLength="40" required name="job" value={job} onChange={onChange} />
-        </label>
-
-        <label> Descrição do cargo
-          <input type="text" maxLength="500" value={description} required name="description" onChange={onChange} />
-        </label>
-
-      </fieldset>
+        <div className="form-row">
+          <div className="form-group col-md-12">
+            <label>Descrição do cargo</label>
+            <textarea className="form-control" type="text" maxLength="500" value={description} required name="description" onChange={onChange} rows="3" />
+          </div>
+        </div>
+      </>
     )
   }
 }

@@ -5,19 +5,23 @@ class DadosGerais extends Component {
   render(){
     const { nome, email, cpf, adress, city, state, moradia, cv, job, description } = this.props.currentStates;
     return (
-      <div>
-        <h2>Dados pessoais:</h2>
-        <p>Nome: {nome}</p>
-        <p>Email: {email}</p>
-        <p>CPF: {cpf}</p>
-        <p>Endereço: {adress}</p>
-        <p>Cidade: {city}</p>
-        <p>Estado: {state.toUpperCase()}</p>
-        <p>Tipo de residência: {moradia}</p>
-        <h2>Dados profissionais:</h2>
-        <p>Resumo do currículo: {cv}</p>
-        <p>Último cargo: {job}</p>
-        <p>Descrição do cargo: {description}</p>
+      <div className="row my-4">
+        <div className="col-md">
+          <h2>Dados pessoais:</h2>
+          <p><strong>Nome: </strong>{nome}</p>
+          <p><strong>Email: </strong>{email}</p>
+          <p><strong>CPF: </strong>{cpf}</p>
+          <p><strong>Endereço: </strong>{adress}</p>
+          <p><strong>Cidade: </strong>{city}</p>
+          <p><strong>Estado: </strong>{state.toUpperCase()}</p>
+          <p><strong>Tipo de residência: </strong>{moradia}</p>
+        </div>
+        <div className="col-md">
+          <h2>Dados profissionais:</h2>
+          <p><strong>Resumo do currículo: </strong>{cv}</p>
+          <p><strong>Último cargo: </strong>{job}</p>
+          <p><strong>Descrição do cargo: </strong>{description}</p>
+        </div>
       </div>
     )
   }
