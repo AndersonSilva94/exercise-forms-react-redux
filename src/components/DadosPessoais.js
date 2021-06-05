@@ -11,12 +11,12 @@ class DadosPessoais extends Component {
         <div className="form-row">
           <div className="form-group col-md-8">
             <label>Nome</label>
-            <input type="text" name="nome" maxLength="40" required onChange={onChange} value={nome.toUpperCase()} className="form-control" />
+            <input type="text" name="nome" maxLength="40" required onChange={onChange} value={nome.toUpperCase()} className="form-control" autoComplete="new-password" />
           </div>
 
           <div className="form-group col-md-4">
             <label>E-mail</label>
-            <input type="email" name="email" maxLength="50" required onChange={onChange} value={email} className="form-control"/>
+            <input type="email" name="email" maxLength="50" required onChange={onChange} value={email} className="form-control" autoComplete="new-password" />
           </div>
         </div>
 
@@ -27,19 +27,20 @@ class DadosPessoais extends Component {
           </div>
           <div className="form-group col-md-9">
             <label>Endereço</label>
-            <input type="text" name="adress" maxLength="200" required onChange={onChange} value={adress.normalize('NFD').replace(/[\u0300-\u036f]/g, "")} className="form-control"/>
+            <input type="text" name="adress" maxLength="200" required onChange={onChange} value={adress.normalize('NFD').replace(/[\u0300-\u036f]/g, "")} className="form-control" autoComplete="new-password" />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group col-md-4">
             <label>Cidade</label>
-            <input type="text" name="city" maxLength="28" required onChange={onChange} value={city} onBlur={onBlur} className="form-control"/>
+            <input type="text" name="city" maxLength="28" required onChange={onChange} value={city} onBlur={onBlur} className="form-control" autoComplete="new-password" />
           </div>
 
           <div className="form-group col-md-4">
             <label>Estado</label>
             <select name="state" className="custom-select" value={state} onChange={onChange}>
+              <option key="" value="">Selecione seu estado</option>
               {data.map(element => {
                 return <option key={element.sigla} value={element.sigla}> {element.estado} </option>
               })};
