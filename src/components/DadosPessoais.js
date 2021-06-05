@@ -23,7 +23,7 @@ class DadosPessoais extends Component {
         <div className="form-row">
           <div className="form-group col-md-3">
             <label>CPF</label>
-            <input type="text" name="cpf" maxLength="11" required onChange={onChange} value={cpf} className="form-control" />
+            <input type="text" name="cpf" maxLength="11" required onChange={onChange} value={cpf} className="form-control" autoComplete="new-password" />
           </div>
           <div className="form-group col-md-9">
             <label>Endereço</label>
