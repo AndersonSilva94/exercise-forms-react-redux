@@ -4,6 +4,8 @@ import data from './data'
 import DadosPessoais from './components/DadosPessoais'
 import UltimoTrabalho from './components/UltimoTrabalho';
 import DadosGerais from './components/DadosGerais';
+import { addInfo, clearInfo } from './actions';
+import { connect } from 'react-redux';
 
 const INITIAL_STATE = {
   nome: '',
@@ -47,15 +49,18 @@ class App extends React.Component {
   }
 
   resetForm = () => {
-    this.setState(INITIAL_STATE)
+    this.setState(INITIAL_STATE);
+    this.props.clear();
   };
 
   renderSubmit = (event) => {
     event.preventDefault();
     this.setState({submitted: true});
+    this.props.add(this.state);
   }
 
   render() {
+    const { infos } = this.props;
     const { nome, email, cpf, adress, city, state, cv, job, description, submitted } = this.state;
 
     return (
@@ -76,11 +81,20 @@ class App extends React.Component {
         <button className="clear" onClick={this.resetForm}>Limpar</button>
         <div className="renderInfo">
           { submitted && <DadosGerais 
-          currentStates={this.state}/> }
+          currentStates={infos}/> }
         </div>
       </div >
     )
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  infos: state,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  add: (form_data) => dispatch(addInfo(form_data)),
+  clear: () => dispatch(clearInfo())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
