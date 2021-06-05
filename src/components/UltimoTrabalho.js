@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class UltimoTrabalho extends Component {
   render() {
@@ -21,6 +22,15 @@ class UltimoTrabalho extends Component {
       </fieldset>
     )
   }
+}
+
+UltimoTrabalho.propTypes = {
+  value: PropTypes.shape({
+    cv: PropTypes.string.isRequired,
+    job: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default UltimoTrabalho;
