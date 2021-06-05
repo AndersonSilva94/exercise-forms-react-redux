@@ -68,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1 className="mt-4 text-center">Cadastro de Currículo</h1>
-        <form className="my-3" autocomplete="off">
+        <form className="my-3" autoComplete="new-password">
           <DadosPessoais
             onChange={this.handleChanges}
             onClick={this.handleClick}
