@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import data from './data'
+import PropTypes from 'prop-types';
 import DadosPessoais from './components/DadosPessoais'
 import UltimoTrabalho from './components/UltimoTrabalho';
 import DadosGerais from './components/DadosGerais';
@@ -100,5 +101,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => 
   bindActionCreators({ addInfo, clearInfo }, dispatch)
+
+App.propTypes = {
+  infos: PropTypes.shape({}).isRequired,
+  addInfo: PropTypes.func.isRequired,
+  clearInfo: PropTypes.func.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

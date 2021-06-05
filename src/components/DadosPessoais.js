@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class DadosPessoais extends Component {
   render() {
@@ -43,6 +44,21 @@ class DadosPessoais extends Component {
       </fieldset>
     )
   }
+}
+
+DadosPessoais.propTypes = {
+  value: PropTypes.shape({
+    nome: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    cpf: PropTypes.string.isRequired,
+    adress: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
 }
 
 export default DadosPessoais;
