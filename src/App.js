@@ -59,7 +59,7 @@ class App extends React.Component {
     const { nome, email, cpf, adress, city, state, cv, job, description, submitted } = this.state;
 
     return (
-      <div>
+      <div className="container">
         <h1>Cadastro de Currículo</h1>
         <form>
           <DadosPessoais
